@@ -4,7 +4,7 @@ import React from 'react';
 const PrimaryForm = () => {
     return (
         <div className={tiroBangla.className}>
-           <form>
+           <form >
 
            
             <div className="mb-5">
@@ -135,34 +135,90 @@ const PrimaryForm = () => {
                             className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             
                         >
-                            <option value="">উজ্জল ফর্সা</option>
-                            <option value="">ফর্সা</option>
-                            <option value="">কালো</option>
-                            <option value="">শ্যামলা</option>
-                            <option value="">উজ্জল শ্যামলা</option>
+                            <option value="">বি পজেটিভ</option>
+                            <option value="">বি নেগেটিভ</option>
+                            <option value="">এ পজেটিভ</option>
+                            <option value="">এ নেগেটিভ</option>
+                            <option value="">এ বি পজেটিভ</option>
+                            <option value="">এ বি নেগেটিভ</option>
                         </select>
                     
                         </div>
                 </div>
             </div>
             
-            <div className="mb-5 pt-3">
-                <label className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl"> 
-                    Address Details
-                </label>
+            <div className="">
+               
                 <div className="-mx-3 flex flex-wrap">
-                    <div className="w-full px-3 sm:w-1/2">
-                        <div className="mb-5">
-                            <input type="text" name="area" id="area" placeholder="Enter area"
-                                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <div className="w-full px-3 sm:w-1/3">
+                    <div className="mb-5">
+                        <label for="time" className="mb-3 block text-base font-medium text-[#07074D]">
+                           ধর্ম
+                        </label>
+                       
+                        {/* <label htmlFor="division" className="block text-sm mb-2">Division</label> */}
+                        <select
+                            id="division"
+                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                            
+                        >
+                            <option value="">ইসলাম</option>
+                            <option value="">সনাতন/হিন্দু</option>
+                            <option value="">বৈদ্ধ</option>
+                            <option value="">খ্রিষ্টান</option>
+                            <option value="">ইহুদি</option>
+                            <option value="">কাদিয়ানি</option>
+                            <option value="">নাস্তিক</option>
+                            <option value="">অননান্য</option>
+                        </select>
+                    
                         </div>
-                    </div>
-                    <div className="w-full px-3 sm:w-1/2">
-                        <div className="mb-5">
-                            <input type="text" name="city" id="city" placeholder="Enter city"
-                                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                </div>
+                <div className="w-full px-3 sm:w-1/3">
+                    <div className="mb-5">
+                        <label for="time" className="mb-3 block text-base font-medium text-[#07074D]">
+                           ধর্ম
+                        </label>
+                       
+                        {/* <label htmlFor="division" className="block text-sm mb-2">Division</label> */}
+                        <select
+                            id="division"
+                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                            
+                        >
+                            <option value="">ইসলাম</option>
+                            <option value="">সনাতন/হিন্দু</option>
+                            <option value="">বৈদ্ধ</option>
+                            <option value="">খ্রিষ্টান</option>
+                            <option value="">ইহুদি</option>
+                            <option value="">কাদিয়ানি</option>
+                            <option value="">অননান্য</option>
+                        </select>
+                    
                         </div>
-                    </div>
+                </div>
+                <div className="w-full px-3 sm:w-1/3">
+                    <div className="mb-5">
+                        <label for="time" className="mb-3 block text-base font-medium text-[#07074D]">
+                           রক্তের গ্রুপ
+                        </label>
+                       
+                        {/* <label htmlFor="division" className="block text-sm mb-2">Division</label> */}
+                        <select
+                            id="division"
+                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                            
+                        >
+                            <option value="">বি পজেটিভ</option>
+                            <option value="">বি নেগেটিভ</option>
+                            <option value="">এ পজেটিভ</option>
+                            <option value="">এ নেগেটিভ</option>
+                            <option value="">এ বি পজেটিভ</option>
+                            <option value="">এ বি নেগেটিভ</option>
+                        </select>
+                    
+                        </div>
+                </div>
                     <div className="w-full px-3 sm:w-1/2">
                         <div className="mb-5">
                             <input type="text" name="state" id="state" placeholder="Enter state"

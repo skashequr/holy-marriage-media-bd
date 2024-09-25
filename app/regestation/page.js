@@ -62,30 +62,30 @@ const Regestation = () => {
                                 />
 							</div>
 						</div>
-						<div class="border rounded-md pt-3 pl-3 w-full mx-auto max-w-2xl">
+						<div className="border rounded-md pt-3 pl-3 w-full mx-auto max-w-2xl">
     
                         <label className="block px-5 text-sm font-bold text-gray-700 dark:text-white" for="c_password">
                               লিঙ্গ
                                 </label>
     <div className='lg:flex lg:gap-5 justify-center items-center'>
-        <label class="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
+        <label className="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
              <input type="radio" name="Country"/>
-             <i class="pl-2">ছেলে</i>
+             <i className="pl-2">ছেলে</i>
         </label>
 
-        <label class="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
+        <label className="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
             <input type="radio" name="Country"/>
-            <i class="pl-2">মেয়ে</i>
+            <i className="pl-2">মেয়ে</i>
         </label>
 
-        <label class="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
+        <label className="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
               <input type="radio" name="Country"/>
-              <i class="pl-2">হিজড়া</i>
+              <i className="pl-2">হিজড়া</i>
          </label>
 
-        <label class="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
+        <label className="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
               <input type="radio" name="Country"/>
-              <i class="pl-2">অননান্য</i>
+              <i className="pl-2">অননান্য</i>
         </label>
 
     </div>

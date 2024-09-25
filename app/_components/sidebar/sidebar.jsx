@@ -3,7 +3,7 @@ import React from 'react';
 const Sidebar = () => {
     return (
        
-            <div className="hidden md:flex flex-col h-full bg-gray-800">
+            <div className="hidden md:hidden lg:flex flex-col h-full bg-gray-800">
     <div className="flex items-center w-full justify-center h-16 bg-gray-900">
         <span className="text-white font-bold uppercase">Daystar Dashboard</span>
     </div>

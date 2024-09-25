@@ -9,12 +9,12 @@ const BioData = () => {
 
 {/* <!-- sidebar --> */}
 
-<div className='grid grid-cols-12 w-full gap-3'>
-    <div className='col-span-3'>
+<div className='lg:grid lg:grid-cols-12  w-full gap-3'>
+    <div className='lg:col-span-3 sm:col-span-0'>
         <Sidebar></Sidebar>
     </div>
     {/* <!-- Main content --> */}
-    <div className='col-span-9'>
+    <div className='lg:col-span-9 sm:col-span-12'>
         <Steaps></Steaps>
          </div>
 </div>
