@@ -14,12 +14,24 @@ const PrimaryForm = () => {
         height: '',
         bloodGroup: '',
         religion: '',
+        bleive: '',
         familyTitle: '',
     });
-    const isMuslim = formData["religion"] ? formData["religion"] === "ইসলাম" : true;
-
-    console.log(isMuslim);
     
+    const isMuslimsFun =(e)=> {
+        
+        if (formData["religion"] === e) {
+            return true
+        }
+        else{
+            return false
+        }
+    };
+    const isMuslim = isMuslimsFun("ইসলাম");
+    const isHindu = isMuslimsFun("হিন্দু");
+    const isBoddho = isMuslimsFun("বৈদ্ধ");
+    const isKhristan = isMuslimsFun("খ্রিষ্টান");
+    const isIhudi = isMuslimsFun("ইহুদি");
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -32,6 +44,9 @@ const PrimaryForm = () => {
         e.preventDefault();
         console.log(formData); // Log all form values
         // You can also handle further actions like sending the data to a server
+
+        console.log(formData);
+        
     };
 
     return (
@@ -83,11 +98,12 @@ const PrimaryForm = () => {
                                 onChange={handleChange}
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             >
-                                <option value="">উজ্জল ফর্সা</option>
-                                <option value="fair">ফর্সা</option>
-                                <option value="black">কালো</option>
-                                <option value="wheatish">শ্যামলা</option>
-                                <option value="light_wheatish">উজ্জল শ্যামলা</option>
+                               <option value="">নির্বাচন করুন</option>
+                                <option value="উজ্জল ফর্সা">উজ্জল ফর্সা</option>
+                                <option value="ফর্সা">ফর্সা</option>
+                                <option value="কালো">কালো</option>
+                                <option value="শ্যামলা">শ্যামলা</option>
+                                <option value="উজ্জল শ্যামলা">উজ্জল শ্যামলা</option>
                             </select>
                         </div>
                     </div>
@@ -139,11 +155,12 @@ const PrimaryForm = () => {
                                 onChange={handleChange}
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             >
-                                <option value="">অবিবাহিত</option>
-                                <option value="married">বিবাহিত</option>
-                                <option value="divorced">ডিভোর্স</option>
-                                <option value="widowed">বিধবা</option>
-                                <option value="widower">বিপত্নিক</option>
+                                <option value="">নির্বাচন করুন</option>=
+                                <option value="অবিবাহিত">অবিবাহিত</option>
+                                <option value="বিবাহিত">বিবাহিত</option>
+                                <option value="ডিভোর্স">ডিভোর্স</option>
+                                <option value="বিধবা">বিধবা</option>
+                                <option value="বিপত্নিক">বিপত্নিক</option>
                             </select>
                         </div>
                     </div>
@@ -156,7 +173,7 @@ const PrimaryForm = () => {
                                 ওজন
                             </label>
                             <input
-                                type="number"
+                                type="text"
                                 name="weight"
                                 id="weight"
                                 required
@@ -181,52 +198,52 @@ const PrimaryForm = () => {
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             >
                                 <option value="">৩'৫"</option>
-    <option value="">৩'৬"</option>
-    <option value="">৩'৭"</option>
-    <option value="">৩'৮"</option>
-    <option value="">৩'৯"</option>
-    <option value="">৩'১০"</option>
-    <option value="">৩'১১"</option>
-    <option value="">৩'১২"</option>
-    <option value="">৪'</option>
-    <option value="">৪'১"</option>
-    <option value="">৪'২"</option>
-    <option value="">৪'৩"</option>
-    <option value="">৪'৪"</option>
-    <option value="">৪'৫"</option>
-    <option value="">৪'৬"</option>
-    <option value="">৪'৭"</option>
-    <option value="">৪'৮"</option>
-    <option value="">৪'৯"</option>
-    <option value="">৪'১০"</option>
-    <option value="">৪'১১"</option>
-    <option value="">৪'১২"</option>
-    <option value="">৫'</option>
-    <option value="">৫'১"</option>
-    <option value="">৫'২"</option>
-    <option value="">৫'৩"</option>
-    <option value="">৫'৪"</option>
-    <option value="">৫'৫"</option>
-    <option value="">৫'৬"</option>
-    <option value="">৫'৭"</option>
-    <option value="">৫'৮"</option>
-    <option value="">৫'৯"</option>
-    <option value="">৫'১০"</option>
-    <option value="">৫'১১"</option>
-    <option value="">৫'১২"</option>
-    <option value="">৬'</option>
-    <option value="">৬'১"</option>
-    <option value="">৬'২"</option>
-    <option value="">৬'৩"</option>
-    <option value="">৬'৪"</option>
-    <option value="">৬'৫"</option>
-    <option value="">৬'৬"</option>
-    <option value="">৬'৭"</option>
-    <option value="">৬'৮"</option>
-    <option value="">৬'৯"</option>
-    <option value="">৬'১০"</option>
-    <option value="">৬'১১"</option>
-    <option value="6'12">৬'১২"</option>
+    <option value="">নির্বাচন করুন</option>
+    <option value="৩'৭">৩'৭"</option>
+    <option value="৩'৮">৩'৮"</option>
+    <option value="৩'৯">৩'৯"</option>
+    <option value="৩'১০">৩'১০"</option>
+    <option value="৩'১১">৩'১১"</option>
+    <option value="৩'১২">৩'১২"</option>
+    <option value="৪">৪'</option>
+    <option value="৪'১">৪'১"</option>
+    <option value="৪'২">৪'২"</option>
+    <option value="৪'৩">৪'৩"</option>
+    <option value="৪'৪">৪'৪"</option>
+    <option value="৪'৫">৪'৫"</option>
+    <option value="৪'৬">৪'৬"</option>
+    <option value="৪'৭">৪'৭"</option>
+    <option value="৪'৮">৪'৮"</option>
+    <option value="৪'৯">৪'৯"</option>
+    <option value="৪'১০">৪'১০"</option>
+    <option value="৪'১১">৪'১১"</option>
+    <option value="৪'১২">৪'১২"</option>
+    <option value="৫">৫'</option>
+    <option value="৫'১">৫'১"</option>
+    <option value="৫'২">৫'২"</option>
+    <option value="৫'৩">৫'৩"</option>
+    <option value="৫'৪">৫'৪"</option>
+    <option value="৫'৫">৫'৫"</option>
+    <option value="৫'৬">৫'৬"</option>
+    <option value="৫'৭">৫'৭"</option>
+    <option value="৫'৮">৫'৮"</option>
+    <option value="৫'৯">৫'৯"</option>
+    <option value="৫'১০">৫'১০"</option>
+    <option value="৫'১১">৫'১১"</option>
+    <option value="৫'১২">৫'১২"</option>
+    <option value="৬">৬'</option>
+    <option value="৬'১">৬'১"</option>
+    <option value="৬'২">৬'২"</option>
+    <option value="৬'৩">৬'৩"</option>
+    <option value="৬'৪">৬'৪"</option>
+    <option value="৬'৫">৬'৫"</option>
+    <option value="৬'৬">৬'৬"</option>
+    <option value="৬'৭">৬'৭"</option>
+    <option value="৬'৮">৬'৮"</option>
+    <option value="৬'৯">৬'৯"</option>
+    <option value="৬'১০">৬'১০"</option>
+    <option value="৬'১১">৬'১১"</option>
+    <option value="৬'12">৬'১২"</option>
                             </select>
                         </div>
                     </div>
@@ -244,7 +261,8 @@ const PrimaryForm = () => {
                                 onChange={handleChange}
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             >
-                                <option value="">বি পজেটিভ</option>
+                                <option value="">নির্বাচন করুন</option>
+                                <option value="B+">বি পজেটিভ</option>
                                 <option value="B-">বি নেগেটিভ</option>
                                 <option value="A+">এ পজেটিভ</option>
                                 <option value="A-">এ নেগেটিভ</option>
@@ -269,18 +287,135 @@ const PrimaryForm = () => {
                                 onChange={handleChange}
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             >
-                                <option value="Islam">ইসলাম</option>
-                                <option value="Hindu">সনাতন/হিন্দু</option>
-                                <option value="Buddhist">বৈদ্ধ</option>
-                                <option value="Christian">খ্রিষ্টান</option>
-                                <option value="Jew">ইহুদি</option>
-                                <option value="Qadiani">কাদিয়ানি</option>
-                                <option value="Atheist">নাস্তিক</option>
-                                <option value="Other">অননান্য</option>
+                                 <option value="">নির্বাচন করুন</option>
+                                <option value="ইসলাম">ইসলাম</option>
+                                <option value="হিন্দু">সনাতন/হিন্দু</option>
+                                <option value="বৈদ্ধ">বৈদ্ধ</option>
+                                <option value="খ্রিষ্টান">খ্রিষ্টান</option>
+                                <option value="ইহুদি">ইহুদি</option>
+                                <option value="কাদিয়ানি">কাদিয়ানি</option>
+                                <option value="নাস্তিক">নাস্তিক</option>
+                                
+                                <option value="হিজবুত তাওহীদ">হিজবুত তাওহীদ</option>
+                                <option value="দেওয়ানবাগী">দেওয়ানবাগী</option>
+                                <option value="অননান্য">অননান্য</option>
                             </select>
                         </div>
                     </div>
+                    <div className="w-full px-3 sm:w-1/3">
+                        <div className="mb-5">
+                            <label htmlFor="religion" className="mb-3 block text-base font-medium text-[#07074D]">
+                                বিশ্বাস
+                            </label>
+                           
+                               {
+    isMuslim ? (
+        <select
+        name="bleive"
+        id="religion"
+        required
+        value={formData.bleive}
+        onChange={handleChange}
+        className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+    >
+            <option value="শিয়া">শিয়া</option>
+            <option value="হানাফি">হানাফি</option>
+            <option value="মালেকি">মালেকি</option>
+            <option value="হাম্বলি">হাম্বলি</option>
+            <option value="সালাফি">সালাফি</option>
+            <option value="সুন্নি">সুন্নি</option>
+            <option value="অননান্য">অননান্য</option>
+            </select>
+    ) : (
+        ""
+    )
 
+}
+
+        {
+            isHindu ? (
+                <select
+                name="bleive"
+                id="religion"
+                required
+                value={formData.bleive}
+                onChange={handleChange}
+                className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            >
+                    <option value="বৈষ্ণবধর্ম">বৈষ্ণবধর্ম</option>
+                    <option value="শৈবধর্ম">শৈবধর্ম</option>
+                    <option value="শাক্তধর্ম">শাক্তধর্ম</option>
+                    <option value="স্মার্তবাদ">স্মার্তবাদ</option>
+                    </select>
+            ) : (
+                ""
+            )
+        }                       
+                {
+            isBoddho ? (
+                <select
+                name="bleive"
+                id="religion"
+                required
+                value={formData.bleive}
+                onChange={handleChange}
+                className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            >
+                    <option value="থেরবাদ">থেরবাদ</option>
+                    <option value="শৈবধর্ম">মহাযান</option>
+                    <option value="শাক্তধর্ম">বজ্রযান</option>
+                    </select>
+            ) : (
+                ""
+            )
+        }           
+
+
+        {
+            isKhristan ? (
+                <select
+                name="bleive"
+                id="religion"
+                required
+                value={formData.bleive}
+                onChange={handleChange}
+                className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            >
+                    <option value="ক্যাথলিক মণ্ডলী">ক্যাথলিক মণ্ডলী</option>
+                    <option value="প্রোটেস্টান্ট মণ্ডলী">প্রোটেস্টান্ট মণ্ডলী</option>
+                    <option value="অর্থোডক্স">অর্থোডক্স</option>
+                    </select>
+            ) : (
+                ""
+            )
+        }    
+
+
+
+                {
+            isIhudi ? (
+                <select
+                name="bleive"
+                id="religion"
+                required
+                value={formData.bleive}
+                onChange={handleChange}
+                className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            >
+                    <option value="অর্থোডক্স">অর্থোডক্স</option>
+                    <option value="রক্ষণশীল">রক্ষণশীল</option>
+                    <option value="সংস্কার">সংস্কার</option>
+                    <option value="মানবতাবাদী">মানবতাবাদী</option>
+                    </select>
+            ) : (
+                ""
+            )
+        } 
+
+
+
+                        </div>
+                    </div>
                     <div className="w-full px-3 sm:w-1/3">
                         <div className="mb-5">
                             <label htmlFor="familyTitle" className="mb-3 block text-base font-medium text-[#07074D]">
