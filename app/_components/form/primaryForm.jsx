@@ -1,6 +1,6 @@
 "use client"
 import { tiroBangla } from '@/app/layout';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const PrimaryForm = () => {
     const [formData, setFormData] = useState({
@@ -18,12 +18,12 @@ const PrimaryForm = () => {
         familyTitle: '',
     });
     
-    const isMuslimsFun =(e)=> {
-        
+    const isMuslimsFun = (e) => {
+
         if (formData["religion"] === e) {
             return true
         }
-        else{
+        else {
             return false
         }
     };
@@ -40,13 +40,22 @@ const PrimaryForm = () => {
         });
     };
 
+    
+
+    useEffect(() => {
+        // Load existing data from localStorage if available
+        const storedData = localStorage.getItem('primeryFormData');
+        if (storedData) {
+            setFormData(JSON.parse(storedData));
+        }
+    }, []);
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData); // Log all form values
         // You can also handle further actions like sending the data to a server
 
         console.log(formData);
-        
+        localStorage.setItem('primeryFormData', JSON.stringify(formData));
     };
 
     return (
@@ -98,7 +107,7 @@ const PrimaryForm = () => {
                                 onChange={handleChange}
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             >
-                               <option value="">নির্বাচন করুন</option>
+                                <option value="">নির্বাচন করুন</option>
                                 <option value="উজ্জল ফর্সা">উজ্জল ফর্সা</option>
                                 <option value="ফর্সা">ফর্সা</option>
                                 <option value="কালো">কালো</option>
@@ -198,52 +207,52 @@ const PrimaryForm = () => {
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             >
                                 <option value="">৩'৫"</option>
-    <option value="">নির্বাচন করুন</option>
-    <option value="৩'৭">৩'৭"</option>
-    <option value="৩'৮">৩'৮"</option>
-    <option value="৩'৯">৩'৯"</option>
-    <option value="৩'১০">৩'১০"</option>
-    <option value="৩'১১">৩'১১"</option>
-    <option value="৩'১২">৩'১২"</option>
-    <option value="৪">৪'</option>
-    <option value="৪'১">৪'১"</option>
-    <option value="৪'২">৪'২"</option>
-    <option value="৪'৩">৪'৩"</option>
-    <option value="৪'৪">৪'৪"</option>
-    <option value="৪'৫">৪'৫"</option>
-    <option value="৪'৬">৪'৬"</option>
-    <option value="৪'৭">৪'৭"</option>
-    <option value="৪'৮">৪'৮"</option>
-    <option value="৪'৯">৪'৯"</option>
-    <option value="৪'১০">৪'১০"</option>
-    <option value="৪'১১">৪'১১"</option>
-    <option value="৪'১২">৪'১২"</option>
-    <option value="৫">৫'</option>
-    <option value="৫'১">৫'১"</option>
-    <option value="৫'২">৫'২"</option>
-    <option value="৫'৩">৫'৩"</option>
-    <option value="৫'৪">৫'৪"</option>
-    <option value="৫'৫">৫'৫"</option>
-    <option value="৫'৬">৫'৬"</option>
-    <option value="৫'৭">৫'৭"</option>
-    <option value="৫'৮">৫'৮"</option>
-    <option value="৫'৯">৫'৯"</option>
-    <option value="৫'১০">৫'১০"</option>
-    <option value="৫'১১">৫'১১"</option>
-    <option value="৫'১২">৫'১২"</option>
-    <option value="৬">৬'</option>
-    <option value="৬'১">৬'১"</option>
-    <option value="৬'২">৬'২"</option>
-    <option value="৬'৩">৬'৩"</option>
-    <option value="৬'৪">৬'৪"</option>
-    <option value="৬'৫">৬'৫"</option>
-    <option value="৬'৬">৬'৬"</option>
-    <option value="৬'৭">৬'৭"</option>
-    <option value="৬'৮">৬'৮"</option>
-    <option value="৬'৯">৬'৯"</option>
-    <option value="৬'১০">৬'১০"</option>
-    <option value="৬'১১">৬'১১"</option>
-    <option value="৬'12">৬'১২"</option>
+                                <option value="">নির্বাচন করুন</option>
+                                <option value="৩'৭">৩'৭"</option>
+                                <option value="৩'৮">৩'৮"</option>
+                                <option value="৩'৯">৩'৯"</option>
+                                <option value="৩'১০">৩'১০"</option>
+                                <option value="৩'১১">৩'১১"</option>
+                                <option value="৩'১২">৩'১২"</option>
+                                <option value="৪">৪'</option>
+                                <option value="৪'১">৪'১"</option>
+                                <option value="৪'২">৪'২"</option>
+                                <option value="৪'৩">৪'৩"</option>
+                                <option value="৪'৪">৪'৪"</option>
+                                <option value="৪'৫">৪'৫"</option>
+                                <option value="৪'৬">৪'৬"</option>
+                                <option value="৪'৭">৪'৭"</option>
+                                <option value="৪'৮">৪'৮"</option>
+                                <option value="৪'৯">৪'৯"</option>
+                                <option value="৪'১০">৪'১০"</option>
+                                <option value="৪'১১">৪'১১"</option>
+                                <option value="৪'১২">৪'১২"</option>
+                                <option value="৫">৫'</option>
+                                <option value="৫'১">৫'১"</option>
+                                <option value="৫'২">৫'২"</option>
+                                <option value="৫'৩">৫'৩"</option>
+                                <option value="৫'৪">৫'৪"</option>
+                                <option value="৫'৫">৫'৫"</option>
+                                <option value="৫'৬">৫'৬"</option>
+                                <option value="৫'৭">৫'৭"</option>
+                                <option value="৫'৮">৫'৮"</option>
+                                <option value="৫'৯">৫'৯"</option>
+                                <option value="৫'১০">৫'১০"</option>
+                                <option value="৫'১১">৫'১১"</option>
+                                <option value="৫'১২">৫'১২"</option>
+                                <option value="৬">৬'</option>
+                                <option value="৬'১">৬'১"</option>
+                                <option value="৬'২">৬'২"</option>
+                                <option value="৬'৩">৬'৩"</option>
+                                <option value="৬'৪">৬'৪"</option>
+                                <option value="৬'৫">৬'৫"</option>
+                                <option value="৬'৬">৬'৬"</option>
+                                <option value="৬'৭">৬'৭"</option>
+                                <option value="৬'৮">৬'৮"</option>
+                                <option value="৬'৯">৬'৯"</option>
+                                <option value="৬'১০">৬'১০"</option>
+                                <option value="৬'১১">৬'১১"</option>
+                                <option value="৬'12">৬'১২"</option>
                             </select>
                         </div>
                     </div>
@@ -287,7 +296,7 @@ const PrimaryForm = () => {
                                 onChange={handleChange}
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             >
-                                 <option value="">নির্বাচন করুন</option>
+                                <option value="">নির্বাচন করুন</option>
                                 <option value="ইসলাম">ইসলাম</option>
                                 <option value="হিন্দু">সনাতন/হিন্দু</option>
                                 <option value="বৈদ্ধ">বৈদ্ধ</option>
@@ -295,7 +304,7 @@ const PrimaryForm = () => {
                                 <option value="ইহুদি">ইহুদি</option>
                                 <option value="কাদিয়ানি">কাদিয়ানি</option>
                                 <option value="নাস্তিক">নাস্তিক</option>
-                                
+
                                 <option value="হিজবুত তাওহীদ">হিজবুত তাওহীদ</option>
                                 <option value="দেওয়ানবাগী">দেওয়ানবাগী</option>
                                 <option value="অননান্য">অননান্য</option>
@@ -307,110 +316,110 @@ const PrimaryForm = () => {
                             <label htmlFor="religion" className="mb-3 block text-base font-medium text-[#07074D]">
                                 বিশ্বাস
                             </label>
-                           
-                               {
-    isMuslim ? (
-        <select
-        name="bleive"
-        id="religion"
-        required
-        value={formData.bleive}
-        onChange={handleChange}
-        className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-    >
-            <option value="শিয়া">শিয়া</option>
-            <option value="হানাফি">হানাফি</option>
-            <option value="মালেকি">মালেকি</option>
-            <option value="হাম্বলি">হাম্বলি</option>
-            <option value="সালাফি">সালাফি</option>
-            <option value="সুন্নি">সুন্নি</option>
-            <option value="অননান্য">অননান্য</option>
-            </select>
-    ) : (
-        ""
-    )
 
-}
+                            {
+                                isMuslim ? (
+                                    <select
+                                        name="bleive"
+                                        id="religion"
+                                        required
+                                        value={formData.bleive}
+                                        onChange={handleChange}
+                                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                    >
+                                        <option value="শিয়া">শিয়া</option>
+                                        <option value="হানাফি">হানাফি</option>
+                                        <option value="মালেকি">মালেকি</option>
+                                        <option value="হাম্বলি">হাম্বলি</option>
+                                        <option value="সালাফি">সালাফি</option>
+                                        <option value="সুন্নি">সুন্নি</option>
+                                        <option value="অননান্য">অননান্য</option>
+                                    </select>
+                                ) : (
+                                    ""
+                                )
 
-        {
-            isHindu ? (
-                <select
-                name="bleive"
-                id="religion"
-                required
-                value={formData.bleive}
-                onChange={handleChange}
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-            >
-                    <option value="বৈষ্ণবধর্ম">বৈষ্ণবধর্ম</option>
-                    <option value="শৈবধর্ম">শৈবধর্ম</option>
-                    <option value="শাক্তধর্ম">শাক্তধর্ম</option>
-                    <option value="স্মার্তবাদ">স্মার্তবাদ</option>
-                    </select>
-            ) : (
-                ""
-            )
-        }                       
-                {
-            isBoddho ? (
-                <select
-                name="bleive"
-                id="religion"
-                required
-                value={formData.bleive}
-                onChange={handleChange}
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-            >
-                    <option value="থেরবাদ">থেরবাদ</option>
-                    <option value="শৈবধর্ম">মহাযান</option>
-                    <option value="শাক্তধর্ম">বজ্রযান</option>
-                    </select>
-            ) : (
-                ""
-            )
-        }           
+                            }
 
-
-        {
-            isKhristan ? (
-                <select
-                name="bleive"
-                id="religion"
-                required
-                value={formData.bleive}
-                onChange={handleChange}
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-            >
-                    <option value="ক্যাথলিক মণ্ডলী">ক্যাথলিক মণ্ডলী</option>
-                    <option value="প্রোটেস্টান্ট মণ্ডলী">প্রোটেস্টান্ট মণ্ডলী</option>
-                    <option value="অর্থোডক্স">অর্থোডক্স</option>
-                    </select>
-            ) : (
-                ""
-            )
-        }    
+                            {
+                                isHindu ? (
+                                    <select
+                                        name="bleive"
+                                        id="religion"
+                                        required
+                                        value={formData.bleive}
+                                        onChange={handleChange}
+                                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                    >
+                                        <option value="বৈষ্ণবধর্ম">বৈষ্ণবধর্ম</option>
+                                        <option value="শৈবধর্ম">শৈবধর্ম</option>
+                                        <option value="শাক্তধর্ম">শাক্তধর্ম</option>
+                                        <option value="স্মার্তবাদ">স্মার্তবাদ</option>
+                                    </select>
+                                ) : (
+                                    ""
+                                )
+                            }
+                            {
+                                isBoddho ? (
+                                    <select
+                                        name="bleive"
+                                        id="religion"
+                                        required
+                                        value={formData.bleive}
+                                        onChange={handleChange}
+                                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                    >
+                                        <option value="থেরবাদ">থেরবাদ</option>
+                                        <option value="শৈবধর্ম">মহাযান</option>
+                                        <option value="শাক্তধর্ম">বজ্রযান</option>
+                                    </select>
+                                ) : (
+                                    ""
+                                )
+                            }
 
 
+                            {
+                                isKhristan ? (
+                                    <select
+                                        name="bleive"
+                                        id="religion"
+                                        required
+                                        value={formData.bleive}
+                                        onChange={handleChange}
+                                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                    >
+                                        <option value="ক্যাথলিক মণ্ডলী">ক্যাথলিক মণ্ডলী</option>
+                                        <option value="প্রোটেস্টান্ট মণ্ডলী">প্রোটেস্টান্ট মণ্ডলী</option>
+                                        <option value="অর্থোডক্স">অর্থোডক্স</option>
+                                    </select>
+                                ) : (
+                                    ""
+                                )
+                            }
 
-                {
-            isIhudi ? (
-                <select
-                name="bleive"
-                id="religion"
-                required
-                value={formData.bleive}
-                onChange={handleChange}
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-            >
-                    <option value="অর্থোডক্স">অর্থোডক্স</option>
-                    <option value="রক্ষণশীল">রক্ষণশীল</option>
-                    <option value="সংস্কার">সংস্কার</option>
-                    <option value="মানবতাবাদী">মানবতাবাদী</option>
-                    </select>
-            ) : (
-                ""
-            )
-        } 
+
+
+                            {
+                                isIhudi ? (
+                                    <select
+                                        name="bleive"
+                                        id="religion"
+                                        required
+                                        value={formData.bleive}
+                                        onChange={handleChange}
+                                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                    >
+                                        <option value="অর্থোডক্স">অর্থোডক্স</option>
+                                        <option value="রক্ষণশীল">রক্ষণশীল</option>
+                                        <option value="সংস্কার">সংস্কার</option>
+                                        <option value="মানবতাবাদী">মানবতাবাদী</option>
+                                    </select>
+                                ) : (
+                                    ""
+                                )
+                            }
 
 
 
