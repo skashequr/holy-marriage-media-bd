@@ -17,7 +17,7 @@ const PrimaryForm = () => {
         bleive: '',
         familyTitle: '',
     });
-    
+
     const isMuslimsFun = (e) => {
 
         if (formData["religion"] === e) {
@@ -40,7 +40,7 @@ const PrimaryForm = () => {
         });
     };
 
-    
+
 
     useEffect(() => {
         // Load existing data from localStorage if available
@@ -427,7 +427,7 @@ const PrimaryForm = () => {
                     </div>
                     <div className="w-full px-3 sm:w-1/3">
                         <div className="mb-5">
-                            <label htmlFor="familyTitle" className="mb-3 block text-base font-medium text-[#07074D]">
+                            <label  className="mb-3 block text-base font-medium text-[#07074D]">
                                 বংশীয় উপাধি
                             </label>
                             <input
@@ -442,7 +442,46 @@ const PrimaryForm = () => {
                         </div>
                     </div>
                 </div>
-
+                <div className="mb-5 pt-3">
+                    <div className="-mx-3 flex flex-wrap">
+                        <div className="w-full px-3 sm:w-1/2">
+                            <div className="mb-5">
+                                <label  className="mb-3 block text-base font-medium text-[#07074D]">
+                                    ই-মেইল
+                                </label>
+                                <input type="email" name="area" id="area" placeholder="exp@gmail.com"
+                                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                            </div>
+                        </div>
+                        <div className="w-full px-3 sm:w-1/2">
+                            <div className="mb-5">
+                                <label  className="mb-3 block text-base font-medium text-[#07074D]">
+                                    অভিভাবক এর নম্বর
+                                </label>
+                                <input type="text" name="city" id="city" placeholder="নম্বর"
+                                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                            </div>
+                        </div>
+                        <div className="w-full px-3 sm:w-1/2">
+                            <div className="mb-5">
+                                <label className="mb-3 block text-base font-medium text-[#07074D]">
+                                    নানার নাম
+                                </label>
+                                <input type="text" name="state" id="state" placeholder=" নানার নাম"
+                                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                            </div>
+                        </div>
+                        <div className="w-full px-3 sm:w-1/2">
+                            <div className="mb-5">
+                                <label className="mb-3 block text-base font-medium text-[#07074D]">
+                                    দাদার নাম
+                                </label>
+                                <input type="text" name="post-code" id="post-code" placeholder="দাদার নাম"
+                                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div>
                     <button
                         type='submit'
