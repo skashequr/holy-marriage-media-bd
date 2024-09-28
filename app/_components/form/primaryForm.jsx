@@ -1,5 +1,5 @@
 "use client"
-import { tiroBangla } from '@/app/layout';
+import { tiroBangla } from '../../layout';
 import React, { useEffect, useState } from 'react';
 
 const PrimaryForm = () => {

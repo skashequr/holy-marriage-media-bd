@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { tiroBangla } from '@/app/layout';
+import { tiroBangla } from '../../layout';
 import NavigateLoginPage from '../auth/navigateLoginPage';
 const Navbar = () => {
     

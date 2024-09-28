@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { FaBookOpen } from "react-icons/fa";
-import { tiroBangla } from '@/app/layout';
+import { tiroBangla } from '../../layout';
 
 const Hero = () => {
     return (

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { CaretLeft, CaretRight } from 'phosphor-react';
 import { Pagination, PaginationItem, PaginationList, PaginationNavigator } from 'keep-react';
-import { tiroBangla } from '@/app/layout';
+import { tiroBangla } from '../../layout';
 
 export const FormPagination = ({ totalPages }) => {
   const [currentPage, setCurrentPage] = useState(1);

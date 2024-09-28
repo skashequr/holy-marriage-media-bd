@@ -1,6 +1,7 @@
-import { tiroBangla } from '@/app/layout';
+
 import React from 'react';
 import Search from '../search/Search';
+import { tiroBangla } from '../../layout';
 
 const AdressForm = () => {
     return (

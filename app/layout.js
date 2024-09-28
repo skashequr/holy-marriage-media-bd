@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { Tiro_Bangla } from "next/font/google";
-import Navbar from "./_components/navbar/Navbar";
+import Navbar from "./_components/Navbar/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${tiroBangla.variable} antialiased`}>
-       {/* <Navbar></Navbar> */}
+       <Navbar></Navbar>
         {children}
       </body>
     </html>

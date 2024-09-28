@@ -1,4 +1,4 @@
-import { tiroBangla } from '@/app/layout';
+import { tiroBangla } from '../../layout';
 import React from 'react';
 import PrimaryForm from './primaryForm';
 import AdressForm from './adressFrom';
