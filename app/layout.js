@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Tiro_Bangla } from "next/font/google";
 import Navbar from "./_components/Navbar/Navbar";
-
+import { Provider } from "react-redux";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -10,8 +10,8 @@ const geistSans = localFont({
 });
 
 export const tiroBangla = Tiro_Bangla({
-  subsets: ["bengali"],  // Change this line
-  weight: [ "400"],
+  subsets: ["bengali"], // Change this line
+  weight: ["400"],
 });
 
 const geistMono = localFont({
@@ -20,13 +20,13 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${tiroBangla.variable} antialiased`}>
-       <Navbar></Navbar>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${tiroBangla.variable} antialiased`}
+      >
+        <Navbar></Navbar>
         {children}
       </body>
     </html>

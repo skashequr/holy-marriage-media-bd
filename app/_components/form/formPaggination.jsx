@@ -1,35 +1,52 @@
-'use client'
-import { useState } from 'react';
-import { CaretLeft, CaretRight } from 'phosphor-react';
-import { Pagination, PaginationItem, PaginationList, PaginationNavigator } from 'keep-react';
-import { tiroBangla } from '../../layout';
+"use client";
+import { CaretLeft, CaretRight } from "phosphor-react";
+import {
+  Pagination,
+  PaginationItem,
+  PaginationList,
+  PaginationNavigator,
+} from "keep-react";
+import { tiroBangla } from "../../layout";
 
-export const FormPagination = ({ totalPages }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
+export const FormPagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
     <div className={tiroBangla.className}>
       <div>
-        <Pagination className='flex items-center justify-center mb-10' shape="circle">
-          <PaginationNavigator shape="circle" disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
+        <Pagination
+          className="flex items-center justify-center mb-10"
+          shape="circle"
+        >
+          {/* Previous Button */}
+          <PaginationNavigator
+            shape="circle"
+            disabled={currentPage === 1}
+            onClick={() => onPageChange(currentPage - 1)}
+            aria-label="Previous Page"
+          >
             <CaretLeft size={18} />
           </PaginationNavigator>
+
+          {/* Pagination List */}
           <PaginationList>
             {Array.from({ length: totalPages }, (_, index) => (
-              <PaginationItem 
-                key={index + 1} 
-                active={currentPage === index + 1} 
-                onClick={() => handlePageChange(index + 1)}
+              <PaginationItem
+                key={index + 1}
+                active={currentPage === index + 1}
+                onClick={() => onPageChange(index + 1)}
+                aria-current={currentPage === index + 1 ? "page" : undefined}
               >
                 {index + 1}
               </PaginationItem>
             ))}
           </PaginationList>
-          <PaginationNavigator shape="circle" disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
+
+          {/* Next Button */}
+          <PaginationNavigator
+            shape="circle"
+            disabled={currentPage === totalPages}
+            onClick={() => onPageChange(currentPage + 1)}
+            aria-label="Next Page"
+          >
             <CaretRight size={18} />
           </PaginationNavigator>
         </Pagination>
@@ -37,6 +54,3 @@ export const FormPagination = ({ totalPages }) => {
     </div>
   );
 };
-
-// Example usage
-// <FormPagination totalPages={8} />
