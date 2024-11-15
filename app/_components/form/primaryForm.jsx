@@ -1,6 +1,8 @@
 "use client";
+import { useDispatch } from "react-redux";
 import { tiroBangla } from "../../layout";
 import React, { useEffect, useState } from "react";
+import { setPersonalInfo } from "@/redux/slice";
 
 const PrimaryForm = () => {
   const [formData, setFormData] = useState({
@@ -31,6 +33,7 @@ const PrimaryForm = () => {
   const isBoddho = isMuslimsFun("বৈদ্ধ");
   const isKhristan = isMuslimsFun("খ্রিষ্টান");
   const isIhudi = isMuslimsFun("ইহুদি");
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -50,7 +53,7 @@ const PrimaryForm = () => {
     e.preventDefault();
     console.log(formData); // Log all form values
     // You can also handle further actions like sending the data to a server
-
+    dispatch(setPersonalInfo(formData));
     console.log(formData);
     localStorage.setItem("primeryFormData", JSON.stringify(formData));
   };

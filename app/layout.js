@@ -3,6 +3,7 @@ import "./globals.css";
 import { Tiro_Bangla } from "next/font/google";
 import Navbar from "./_components/Navbar/Navbar";
 import { Provider } from "react-redux";
+import { AppProvider } from "./redux/provider";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${tiroBangla.variable} antialiased`}
       >
         <Navbar></Navbar>
-        {children}
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );
