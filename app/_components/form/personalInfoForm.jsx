@@ -1,39 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 
 const PersonalInfoForm = () => {
+  const [formData, setFormData] = useState({
+    voterOrBirthRegistrationNo: "",
+    voterOrBirthRegistrationPhoto: null,
+    mobileNumber: "",
+    currentPhoto: null,
+    hobbies: "",
+    religiousView: "",
+    disabilityStatus: "",
+    secondMarriageThoughts: "",
+    financialSource: "",
+    fatherVoterIdPhoto: null,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleFileChange = (e) => {
+    const { name, files } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: files[0], // For single file input, get the first file
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Data Submitted: ", formData);
+    // You can handle the form submission here, like sending data to an API.
+  };
+
   return (
     <div>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="-mx-3 flex flex-wrap">
             <div className="w-full px-3 sm:w-1/2">
               <div className="mb-5">
                 <label
-                  htmlFor="time"
+                  htmlFor="voterOrBirthRegistrationNo"
                   className="mb-3 block text-base font-medium text-[#07074D]"
                 >
                   ভোটার আইডি / জন্মনিবন্ধন নম্বর
                 </label>
-
-                {/* <label htmlFor="division" className="block text-sm mb-2">Division</label> */}
                 <input
-                  id="division"
+                  id="voterOrBirthRegistrationNo"
+                  name="voterOrBirthRegistrationNo"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   placeholder="পিতার নাম"
+                  value={formData.voterOrBirthRegistrationNo}
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
+
             <div className="w-full px-3 sm:w-1/2">
               <div className="mb-5">
                 <label
-                  htmlFor="time"
+                  htmlFor="voterOrBirthRegistrationPhoto"
                   className="mb-3 block text-base font-medium text-[#07074D]"
                 >
                   ভোটার আইডি / জন্মনিবন্ধন নম্বর ছবি
                 </label>
-
-                {/* <label htmlFor="division" className="block text-sm mb-2">Division</label> */}
-
                 <label
                   className="flex cursor-pointer appearance-none justify-center py-3 px-6 rounded-md border border-dashed border-gray-300 bg-white text-sm transition hover:border-gray-400 focus:border-solid focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75"
                   tabIndex="0"
@@ -81,44 +115,46 @@ const PersonalInfoForm = () => {
                     </span>
                   </span>
                   <input
-                    id="photo-dropbox"
+                    id="voterOrBirthRegistrationPhoto"
+                    name="voterOrBirthRegistrationPhoto"
                     type="file"
                     accept="image/*"
                     className="sr-only"
+                    onChange={handleFileChange}
                   />
                 </label>
               </div>
             </div>
           </div>
+
           <div className="-mx-3 flex flex-wrap">
             <div className="w-full px-3 sm:w-1/2">
               <div className="mb-5">
                 <label
-                  htmlFor="time"
+                  htmlFor="mobileNumber"
                   className="mb-3 block text-base font-medium text-[#07074D]"
                 >
                   পাত্রের মোবাইল নম্বর
                 </label>
-
-                {/* <label htmlFor="division" className="block text-sm mb-2">Division</label> */}
                 <input
-                  id="division"
+                  id="mobileNumber"
+                  name="mobileNumber"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   placeholder="মোবাইল নম্বর"
+                  value={formData.mobileNumber}
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
+
             <div className="w-full px-3 sm:w-1/2">
               <div className="mb-5">
                 <label
-                  htmlFor="time"
+                  htmlFor="currentPhoto"
                   className="mb-3 block text-base font-medium text-[#07074D]"
                 >
                   পাত্রের/পাত্রির বর্তমান ছবি
                 </label>
-
-                {/* <label htmlFor="division" className="block text-sm mb-2">Division</label> */}
-
                 <label
                   className="flex cursor-pointer appearance-none justify-center py-3 px-6 rounded-md border border-dashed border-gray-300 bg-white text-sm transition hover:border-gray-400 focus:border-solid focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75"
                   tabIndex="0"
@@ -166,48 +202,52 @@ const PersonalInfoForm = () => {
                     </span>
                   </span>
                   <input
-                    id="photo-dropbox"
+                    id="currentPhoto"
+                    name="currentPhoto"
                     type="file"
                     accept="image/*"
                     className="sr-only"
+                    onChange={handleFileChange}
                   />
                 </label>
               </div>
             </div>
           </div>
+
           <div className="mb-5">
             <label
-              htmlFor="name"
+              htmlFor="hobbies"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               নিজের শখ,পছন্দ-অপছন্দ,রুচিবোধ,স্বপ্ন ইত্যাদি বিষয়ে লিখুন
             </label>
-
             <textarea
-              type="text"
-              name="name"
-              id="name"
+              name="hobbies"
+              id="hobbies"
               placeholder="বিস্তারিত লিখুন"
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              value={formData.hobbies}
+              onChange={handleInputChange}
             ></textarea>
           </div>
+
           <div className="mb-5">
             <label
-              htmlFor="name"
+              htmlFor="religiousView"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
-              নিজের ধর্মিয় দৃষ্টিভঙ্গি সম্পর্ক বিস্তারিত লিখুন
+              নিজের ধর্মীয় দৃষ্টিভঙ্গি সম্পর্ক বিস্তারিত লিখুন
             </label>
-
             <textarea
-              type="text"
-              name="name"
-              id="name"
+              name="religiousView"
+              id="religiousView"
               placeholder="বিস্তারিত লিখুন"
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              value={formData.religiousView}
+              onChange={handleInputChange}
             ></textarea>
           </div>
-          {/* ফাও */}
+
           <div className="mb-5 pt-3">
             <label className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
               অতিরিক্ত তথ্য
@@ -216,14 +256,16 @@ const PersonalInfoForm = () => {
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
                   <label
-                    htmlFor="height"
+                    htmlFor="disabilityStatus"
                     className="mb-3 block text-base font-medium text-[#07074D]"
                   >
                     আপনার কি কোনো প্রতিবন্ধকাতা আছে?
                   </label>
                   <select
-                    name="height"
-                    id="height"
+                    name="disabilityStatus"
+                    id="disabilityStatus"
+                    value={formData.disabilityStatus}
+                    onChange={handleInputChange}
                     required
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   >
@@ -242,51 +284,55 @@ const PersonalInfoForm = () => {
                   </select>
                 </div>
               </div>
+
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
                   <label
-                    htmlFor="name"
+                    htmlFor="secondMarriageThoughts"
                     className="mb-3 block text-base font-medium text-[#07074D]"
                   >
                     একাধিক বিয়ে নিয়ে আপনার চিন্তাভাবনা
                   </label>
                   <input
                     type="text"
-                    name="city"
-                    id="city"
+                    name="secondMarriageThoughts"
+                    id="secondMarriageThoughts"
                     placeholder="চিন্তাভাবনা"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    value={formData.secondMarriageThoughts}
+                    onChange={handleInputChange}
                   />
                 </div>
               </div>
+
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
                   <label
-                    htmlFor="name"
+                    htmlFor="financialSource"
                     className="mb-3 block text-base font-medium text-[#07074D]"
                   >
                     আপনার আর্থিক সোর্স
                   </label>
                   <input
                     type="text"
-                    name="state"
-                    id="state"
+                    name="financialSource"
+                    id="financialSource"
                     placeholder="বিস্তারিত লিখুন"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    value={formData.financialSource}
+                    onChange={handleInputChange}
                   />
                 </div>
               </div>
+
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
                   <label
-                    htmlFor="time"
+                    htmlFor="fatherVoterIdPhoto"
                     className="mb-3 block text-base font-medium text-[#07074D]"
                   >
                     পিতার ভোটার আইডি ছবি
                   </label>
-
-                  {/* <label htmlFor="division" className="block text-sm mb-2">Division</label> */}
-
                   <label
                     className="flex cursor-pointer appearance-none justify-center py-3 px-6 rounded-md border border-dashed border-gray-300 bg-white text-sm transition hover:border-gray-400 focus:border-solid focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75"
                     tabIndex="0"
@@ -334,16 +380,19 @@ const PersonalInfoForm = () => {
                       </span>
                     </span>
                     <input
-                      id="photo-dropbox"
+                      id="fatherVoterIdPhoto"
+                      name="fatherVoterIdPhoto"
                       type="file"
                       accept="image/*"
                       className="sr-only"
+                      onChange={handleFileChange}
                     />
                   </label>
                 </div>
               </div>
             </div>
           </div>
+
           <button
             type="submit"
             className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"

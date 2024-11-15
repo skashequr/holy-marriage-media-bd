@@ -13,10 +13,7 @@ const UserDashboard = () => {
               <Sidebar></Sidebar>
             </div>
             {/* <!-- Main content --> */}
-            <div className="lg:col-span-9 sm:col-span-12">
-              {/* <Steaps></Steaps> */}
-              <Sidebar></Sidebar>
-            </div>
+            <div className="lg:col-span-9 sm:col-span-12"></div>
           </div>
         </div>
       </div>
