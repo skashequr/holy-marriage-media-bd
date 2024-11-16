@@ -1,6 +1,10 @@
+import { setPersonalData } from "@/redux/personalDataSlice";
+import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const PersonalInfoForm = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     voterOrBirthRegistrationNo: "",
     voterOrBirthRegistrationPhoto: null,
@@ -22,17 +26,43 @@ const PersonalInfoForm = () => {
     }));
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const { name, files } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: files[0], // For single file input, get the first file
-    }));
+    const file = files[0];
+
+    // If the file is not null, upload it and get the URL
+    if (file) {
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+        // Replace with your image upload URL
+        const response = await axios.post(
+          "https://api.imgix.com/upload",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              // Add any necessary headers like API keys
+            },
+          }
+        );
+        const imageUrl = response.data.url; // Get image URL from response
+
+        // Update formData with the image URL
+        setFormData((prevData) => ({
+          ...prevData,
+          [name]: imageUrl, // Store the URL in state
+        }));
+      } catch (error) {
+        console.error("Error uploading file", error);
+      }
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data Submitted: ", formData);
+    dispatch(setPersonalData(formData));
     // You can handle the form submission here, like sending data to an API.
   };
 

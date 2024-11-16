@@ -1,6 +1,8 @@
+"use client";
 import Sidebar from "@/_components/sidebar/sidebar";
 import React from "react";
-
+import MyProfilePage from "@/_components/user/userProfile";
+import Profile from "@/_components/user/userDateails";
 const UserDashboard = () => {
   return (
     <div>
@@ -13,7 +15,10 @@ const UserDashboard = () => {
               <Sidebar></Sidebar>
             </div>
             {/* <!-- Main content --> */}
-            <div className="lg:col-span-9 sm:col-span-12"></div>
+            <div className="lg:col-span-9 sm:col-span-12">
+              <MyProfilePage></MyProfilePage>
+              {/* <Profile></Profile> */}
+            </div>
           </div>
         </div>
       </div>

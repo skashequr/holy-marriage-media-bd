@@ -11,6 +11,7 @@
   "dependencies": {
     "@fouita/slider": "^0.0.4",
     "@reduxjs/toolkit": "^2.3.0",
+    "axios": "^1.7.7",
     "bd-divisions-to-unions": "^1.0.3",
     "keep-react": "^1.5.0",
     "next": "14.2.12",
