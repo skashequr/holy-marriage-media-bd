@@ -7,6 +7,7 @@ import familyReducer from "./familySlice";
 import personalDataSlice from "./personalDataSlice";
 import marriageInfo from "./marriageInfoSlice";
 import expectedPatner from "./expectedPatnerSlice";
+import ongicarnama from "./ongicarnamaSlice";
 // import {} from "";
 const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
     personal: personalDataSlice,
     marriageInfo: marriageInfo,
     expectedPatner: expectedPatner,
+    ongicarnam: ongicarnama,
   },
 });
 

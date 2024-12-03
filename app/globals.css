@@ -25,3 +25,26 @@ body {
     text-wrap: balance;
   }
 }
+
+.slider {
+  height: 5px;
+  background: #e4e4e7;
+  border-radius: 2px;
+  position: relative;
+}
+
+.track {
+  background: #9333ea;
+  height: 5px;
+  position: absolute;
+  top: 0;
+  border-radius: 2px;
+}
+
+.thumb {
+  width: 15px;
+  height: 15px;
+  background: #9333ea;
+  border-radius: 50%;
+  cursor: grab;
+}

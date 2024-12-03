@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tiroBangla.variable} antialiased`}
       >
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
         <AppProvider>{children}</AppProvider>
       </body>
     </html>

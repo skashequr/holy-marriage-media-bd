@@ -7,7 +7,7 @@ import { setPersonalInfo } from "@/redux/slice";
 const PrimaryForm = () => {
   const [formData, setFormData] = useState({
     name: "",
-    mobile: "",
+    number: "",
     skinTone: "",
     birthYear: "",
     nationality: "",
@@ -19,6 +19,9 @@ const PrimaryForm = () => {
     bleive: "",
     familyTitle: "",
     bioDataType: "",
+    email: "",
+    maternalGrandfatherName: "",
+    paternalGrandfatherName: "",
   });
 
   const isMuslimsFun = (e) => {
@@ -36,6 +39,8 @@ const PrimaryForm = () => {
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name);
+
     setFormData({
       ...formData,
       [name]: value,
@@ -517,7 +522,7 @@ const PrimaryForm = () => {
                 </label>
                 <input
                   type="email"
-                  name="area"
+                  name="email"
                   id="area"
                   placeholder="exp@gmail.com"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -531,7 +536,7 @@ const PrimaryForm = () => {
                 </label>
                 <input
                   type="text"
-                  name="city"
+                  name="guirdianNumber"
                   id="city"
                   placeholder="নম্বর"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -541,7 +546,7 @@ const PrimaryForm = () => {
             <div className="w-full px-3 sm:w-1/2">
               <div className="mb-5">
                 <label className="mb-3 block text-base font-medium text-[#07074D]">
-                  নানার নাম
+                  নানার বংশ
                 </label>
                 <input
                   type="text"
@@ -555,7 +560,7 @@ const PrimaryForm = () => {
             <div className="w-full px-3 sm:w-1/2">
               <div className="mb-5">
                 <label className="mb-3 block text-base font-medium text-[#07074D]">
-                  দাদার নাম
+                  দাদার বংশ
                 </label>
                 <input
                   type="text"

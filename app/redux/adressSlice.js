@@ -3,14 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state for address
 const initialState = {
-  address: {
-    currentAddress: "",
-    division: "",
-    district: "",
-    upazila: "",
-    union: "",
-    postalCode: "",
-    permanentAddress: "",
+  currentAddress: {
+    area: "", // Division
+    city: "", // District
+    state: "", // Upazila
+    village: "", // Union
+    postCode: "", // Postal Code
+  },
+  permanentAddress: {
+    area: "", // Division
+    city: "", // District
+    state: "", // Upazila
+    postCode: "", // Postal Code
   },
 };
 
@@ -19,14 +23,22 @@ const addressSlice = createSlice({
   name: "address",
   initialState,
   reducers: {
+    // Set the entire address object for current and permanent address
     setAddress: (state, action) => {
-      state.address = action.payload; // Set the entire address object
+      const { currentAddress, permanentAddress } = action.payload;
+      state.currentAddress = currentAddress || state.currentAddress;
+      state.permanentAddress = permanentAddress || state.permanentAddress;
     },
-    updateAddress: (state, action) => {
-      state.address = { ...state.address, ...action.payload }; // Update specific fields
+    // Update specific fields of currentAddress or permanentAddress
+    updateCurrentAddress: (state, action) => {
+      state.currentAddress = { ...state.currentAddress, ...action.payload };
+    },
+    updatePermanentAddress: (state, action) => {
+      state.permanentAddress = { ...state.permanentAddress, ...action.payload };
     },
   },
 });
 
-export const { setAddress, updateAddress } = addressSlice.actions;
+export const { setAddress, updateCurrentAddress, updatePermanentAddress } =
+  addressSlice.actions;
 export default addressSlice.reducer;

@@ -11,9 +11,9 @@ const ProfileCard = ({
   following,
 }) => {
   return (
-    <div className="flex flex-col justify-center items-center h-[100vh]">
-      <div className="relative flex flex-col items-center rounded-[10px] border-[1px] border-gray-200 w-[400px] mx-auto p-4 bg-white bg-clip-border shadow-md shadow-[#F3F3F3] dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none">
-        <div className="relative flex h-32 w-full justify-center rounded-xl bg-cover">
+    <div className="grid grid-cols-1 my-4 sm:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-6">
+      <div className="relative flex flex-col items-center rounded-lg border border-gray-200 w-[90%] sm:w-[350px] lg:w-[400px] mx-auto p-6 bg-white shadow-md dark:border-[#ffffff33] dark:bg-navy-800 dark:text-white dark:shadow-none">
+        <div className="relative flex  items-center justify-center lg:m-3 w-full h-20 sm:h-24 lg:h-48 rounded-xl bg-cover">
           {/* Use Next.js Image Component for Banner */}
           <Image
             src={bannerImage}
@@ -22,7 +22,7 @@ const ProfileCard = ({
             objectFit="cover"
             className="rounded-xl"
           />
-          <div className="absolute -bottom-12 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
+          <div className="absolute lg:my-9 -my-2 -bottom-8 sm:-bottom-8 lg:-bottom-20 flex items-center justify-center w-[87px] h-[87px] rounded-full border-4 border-white bg-pink-400 dark:border-navy-700">
             {/* Use Next.js Image Component for Profile Picture */}
             <Image
               src={profilePicture}
@@ -33,13 +33,15 @@ const ProfileCard = ({
             />
           </div>
         </div>
-        <div className="mt-16 flex flex-col items-center">
-          <h4 className="text-xl font-bold text-navy-700 dark:text-white">
+
+        <div className="mt-8 flex flex-col items-center text-center">
+          <h4 className="text-2xl font-bold text-navy-700 dark:text-white">
             {name}
           </h4>
           <p className="text-base font-normal text-gray-600">{title}</p>
         </div>
-        <div className="mt-6 mb-3 flex gap-14 md:!gap-14">
+
+        <div className="mt-6 flex flex-col sm:flex-row sm:gap-12 md:gap-14 lg:gap-16 justify-center text-center">
           <div className="flex flex-col items-center justify-center">
             <p className="text-2xl font-bold text-navy-700 dark:text-white">
               {posts}
@@ -76,7 +78,13 @@ const MyProfilePage = () => {
     following: 434,
   };
 
-  return <ProfileCard {...user} />;
+  return (
+    <div className="grid grid-cols-2">
+      <ProfileCard {...user} />
+      <ProfileCard {...user} />
+      <ProfileCard {...user} />
+    </div>
+  );
 };
 
 export default MyProfilePage;
