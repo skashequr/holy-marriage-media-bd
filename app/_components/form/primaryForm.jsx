@@ -7,11 +7,19 @@ import { setPersonalInfo } from "@/redux/slice";
 const PrimaryForm = () => {
   const [formData, setFormData] = useState({
     name: "",
-    number: "",
+    mobile: "",
     skinTone: "",
     birthYear: "",
     nationality: "",
+    bioDataType: "",
+
+    birthYear: "",
+    bleive: "",
+    bloodGroup: "",
+    familyTitle: "",
+    height: "",
     maritalStatus: "",
+
     weight: "",
     height: "",
     bloodGroup: "",
@@ -39,11 +47,12 @@ const PrimaryForm = () => {
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name);
+    console.log(name); // Logs the name of the field (e.g., 'email')
+    console.log(value); // Logs the new value entered by the user (e.g., the email address)
 
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value, // Dynamically sets the value for the appropriate field
     });
   };
 
@@ -524,6 +533,8 @@ const PrimaryForm = () => {
                   type="email"
                   name="email"
                   id="area"
+                  value={formData?.email} // Bind to the email value in the formData state
+                  onChange={handleChange} // Handle changes via handleChange function
                   placeholder="exp@gmail.com"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
