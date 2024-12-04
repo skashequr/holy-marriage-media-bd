@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   personalInfo: {
     name: "",
-    number: "",
+    mobile: "",
     skinTone: "",
     birthYear: "",
     nationality: "",
@@ -17,9 +17,13 @@ const initialState = {
     bleive: "",
     familyTitle: "",
     bioDataType: "",
+    email: "",
+    guirdeainNumber: "",
     maternalGrandfatherName: "",
     paternalGrandfatherName: "",
+    // track the current step
   },
+  currentPage2: 1,
 };
 
 // Create a slice for managing personalInfo
@@ -33,9 +37,12 @@ const personalInfoSlice = createSlice({
     updatePersonalInfo: (state, action) => {
       state.personalInfo = { ...state.personalInfo, ...action.payload }; // Update specific fields
     },
+    setCurrentPage2: (state, action) => {
+      state.currentPage2 = { ...action.currentPage2, ...action.payload };
+    },
   },
 });
 
-export const { setPersonalInfo, updatePersonalInfo } =
+export const { setPersonalInfo, updatePersonalInfo, setCurrentPage2 } =
   personalInfoSlice.actions;
 export default personalInfoSlice.reducer;

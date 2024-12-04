@@ -3,7 +3,10 @@ import { tiroBangla } from "../../layout";
 import { useDispatch } from "react-redux";
 import { setAddress } from "@/redux/adressSlice";
 
-const AddressForm = () => {
+const AddressForm = ({ onPageChange }) => {
+  const handleNext = () => {
+    onPageChange(3); // Move to the next page (Step 2)
+  };
   // Initialize state for each field
   const [currentAddress, setCurrentAddress] = useState({
     area: "",
@@ -40,6 +43,7 @@ const AddressForm = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleNext();
     // Here you can send the data to an API or use it for other purposes
     const address = {
       currentAddress,
@@ -177,6 +181,7 @@ const AddressForm = () => {
                   type="text"
                   name="postCode"
                   id="post-code"
+                  required
                   value={permanentAddress.postCode}
                   placeholder="পোষ্ট কোড"
                   onChange={handlePermanentAddressChange}
@@ -188,7 +193,10 @@ const AddressForm = () => {
         </div>
 
         <div>
-          <button className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+          <button
+            type="submit"
+            className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
+          >
             পরবর্তী
           </button>
         </div>

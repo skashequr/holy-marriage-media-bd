@@ -2,7 +2,10 @@ import { setFamily } from "@/redux/familySlice";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-const FamilyDetails = () => {
+const FamilyDetails = ({ onPageChange }) => {
+  const handleNext = () => {
+    onPageChange(5); // Move to the next page (Step 2)
+  };
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     fatherName: "",
@@ -48,6 +51,7 @@ const FamilyDetails = () => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
     dispatch(setFamily(formData));
+    handleNext();
   };
 
   return (

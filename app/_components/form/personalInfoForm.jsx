@@ -3,7 +3,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-const PersonalInfoForm = () => {
+const PersonalInfoForm = ({ onPageChange }) => {
+  const handleNext = () => {
+    onPageChange(6); // Move to the next page (Step 2)
+  };
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     voterOrBirthRegistrationNo: "",
@@ -64,6 +67,7 @@ const PersonalInfoForm = () => {
     console.log("Form Data Submitted: ", formData);
     dispatch(setPersonalData(formData));
     // You can handle the form submission here, like sending data to an API.
+    handleNext();
   };
 
   return (

@@ -4,7 +4,11 @@ import { tiroBangla } from "../../layout";
 import React, { useEffect, useState } from "react";
 import { setPersonalInfo } from "@/redux/slice";
 
-const PrimaryForm = () => {
+const PrimaryForm = ({ onPageChange }) => {
+  const handleNext = () => {
+    onPageChange(2); // Move to the next page (Step 2)
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -28,6 +32,7 @@ const PrimaryForm = () => {
     familyTitle: "",
     bioDataType: "",
     email: "",
+    guirdeainNumber: "",
     maternalGrandfatherName: "",
     paternalGrandfatherName: "",
   });
@@ -68,7 +73,9 @@ const PrimaryForm = () => {
     console.log(formData); // Log all form values
     // You can also handle further actions like sending the data to a server
     dispatch(setPersonalInfo(formData));
+    // dispatch(setCurrentPage(2));
     console.log(formData);
+    handleNext();
     localStorage.setItem("primeryFormData", JSON.stringify(formData));
   };
 
@@ -533,7 +540,7 @@ const PrimaryForm = () => {
                   type="email"
                   name="email"
                   id="area"
-                  value={formData?.email} // Bind to the email value in the formData state
+                  value={formData?.email || ""} // Bind to the email value in the formData state
                   onChange={handleChange} // Handle changes via handleChange function
                   placeholder="exp@gmail.com"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -547,7 +554,9 @@ const PrimaryForm = () => {
                 </label>
                 <input
                   type="text"
-                  name="guirdianNumber"
+                  name="guirdeainNumber"
+                  value={formData?.guirdeainNumber || ""} // Bind to the email value in the formData state
+                  onChange={handleChange}
                   id="city"
                   placeholder="নম্বর"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -561,9 +570,11 @@ const PrimaryForm = () => {
                 </label>
                 <input
                   type="text"
-                  name="state"
+                  name="maternalGrandfatherName"
+                  value={formData?.maternalGrandfatherName || ""} // Bind to the email value in the formData state
+                  onChange={handleChange}
                   id="state"
-                  placeholder=" নানার নাম"
+                  placeholder=" নানার বংশ"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
               </div>
@@ -575,7 +586,9 @@ const PrimaryForm = () => {
                 </label>
                 <input
                   type="text"
-                  name="post-code"
+                  name="paternalGrandfatherName"
+                  value={formData?.paternalGrandfatherName || ""} // Bind to the email value in the formData state
+                  onChange={handleChange}
                   id="post-code"
                   placeholder="দাদার নাম"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"

@@ -2,7 +2,10 @@ import { setExpectedPatner } from "@/redux/expectedPatnerSlice";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-const ExpectedPatnerForm = () => {
+const ExpectedPatnerForm = ({ onPageChange }) => {
+  const handleNext = () => {
+    onPageChange(8); // Move to the next page (Step 2)
+  };
   const [formData, setFormData] = useState({
     ageRange: "",
     skinTone: "",
@@ -30,6 +33,7 @@ const ExpectedPatnerForm = () => {
     // You can send the formData to your backend or process it as needed
     console.log(formData);
     dispatch(setExpectedPatner(formData));
+    handleNext();
   };
 
   return (

@@ -2,7 +2,10 @@
 import { setEducation } from "@/redux/educationalSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-const EducationForm = () => {
+const EducationForm = ({ onPageChange }) => {
+  const handleNext = () => {
+    onPageChange(4); // Move to the next page (Step 2)
+  };
   const [formData, setFormData] = useState({
     medium: "",
     highestQualification: "",
@@ -60,6 +63,7 @@ const EducationForm = () => {
     console.log(formData); // Here you can handle the form data, e.g., send to an API
     // console.log(formData);
     dispatch(setEducation(formData));
+    handleNext();
   };
 
   return (

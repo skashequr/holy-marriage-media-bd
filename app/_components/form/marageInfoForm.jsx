@@ -2,7 +2,10 @@ import { setMarriageInfo } from "@/redux/marriageInfoSlice";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const MarageInfoForm = () => {
+const MarageInfoForm = ({ onPageChange }) => {
+  const handleNext = () => {
+    onPageChange(7); // Move to the next page (Step 2)
+  };
   const personalData = useSelector((state) => state.personalInfo);
   const bioDataType = personalData?.personalInfo?.bioDataType;
   const dispatch = useDispatch();
@@ -37,6 +40,7 @@ const MarageInfoForm = () => {
     e.preventDefault();
     console.log(formData);
     dispatch(setMarriageInfo(formData));
+    handleNext();
     // You can submit the form data to an API or Redux store here
   };
 
