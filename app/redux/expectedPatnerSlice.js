@@ -22,7 +22,17 @@ const expectedPatnerSlice = createSlice({
   reducers: {
     setExpectedPatner: (state, action) => {
       const { name, value } = action.payload;
-      state[name] = value;
+      // state[name] = value;
+      state.ageRange = action.payload.ageRange;
+      state.skinTone = action.payload.skinTone;
+      state.height = action.payload.height;
+      state.education = action.payload.education;
+      state.district = action.payload.district;
+      state.expectedQualities = action.payload.expectedQualities;
+      state.maritalStatus = action.payload.maritalStatus;
+      state.profession = action.payload.profession;
+      state.religiosity = action.payload.religiosity;
+      state.familyEconomicStatus = action.payload.familyEconomicStatus;
     },
     // resetFormData: () => initialState,  // Optional: to reset the form
   },

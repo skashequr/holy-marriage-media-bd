@@ -29,6 +29,8 @@ const MarageInfoForm = ({ onPageChange }) => {
   // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // console.log(value);
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,

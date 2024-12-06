@@ -23,8 +23,18 @@ const marriageInfoSlice = createSlice({
   initialState,
   reducers: {
     setMarriageInfo: (state, action) => {
-      const { name, value } = action.payload;
-      state[name] = value;
+      state.guardianConsent = action.payload.guardianConsent;
+      state.jobAfterMarriage = action.payload.jobAfterMarriage;
+      state.workPreference = action.payload.workPreference;
+      state.studyAfterMarriage = action.payload.studyAfterMarriage;
+      state.acceptStudent = action.payload.acceptStudent;
+      state.separateLiving = action.payload.separateLiving;
+      state.thoughtsOnMarriage = action.payload.thoughtsOnMarriage;
+      state.expectationsFromOppositeSide =
+        action.payload.expectationsFromOppositeSide;
+      state.reasonForMarriage = action.payload.reasonForMarriage;
+      state.dowry = action.payload.dowry;
+      state.pastRelationship = action.payload.pastRelationship;
     },
     resetMarriageInfo: () => initialState, // Optional: to reset the form
   },
