@@ -273,8 +273,8 @@ const PrimaryForm = ({ onPageChange }) => {
                 onChange={handleChange}
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               >
-                <option value="">৩'৫"</option>
                 <option value="">নির্বাচন করুন</option>
+                <option value="">৩'৫"</option>
                 <option value="৩'৭">৩'৭"</option>
                 <option value="৩'৮">৩'৮"</option>
                 <option value="৩'৯">৩'৯"</option>

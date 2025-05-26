@@ -24,6 +24,7 @@
     "react-redux": "^9.1.2",
     "react-slider": "^2.0.6",
     "react-step-wizard": "^4.2.0",
+    "react-toastify": "^11.0.2",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
     "swr": "^2.2.5"

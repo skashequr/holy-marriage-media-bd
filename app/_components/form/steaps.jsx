@@ -1,16 +1,21 @@
 "use client";
 import React, { useState } from "react";
 import { tiroBangla } from "../../layout";
-import PrimaryForm from "./primaryForm";
-import AdressForm from "./adressFrom";
-import EducationForm from "./educationForm";
-import FamilyDetails from "./familyDetails";
-import PersonalInfoForm from "./personalInfoForm";
-import MarageInfoForm from "./marageInfoForm";
-import ExpectedPatnerForm from "./expectedPatnerForm";
-import OngicarNama from "./ongicarNama";
+import dynamic from "next/dynamic";
+const PrimaryForm = dynamic(() => import("./primaryForm"), {
+  loading: () => <p>লোড হচ্ছে...</p>,
+});
+
+const AdressForm = dynamic(() => import("./adressFrom"));
+const EducationForm = dynamic(() => import("./educationForm"));
+const FamilyDetails = dynamic(() => import("./familyDetails"));
+const PersonalInfoForm = dynamic(() => import("./personalInfoForm"));
+const MarageInfoForm = dynamic(() => import("./marageInfoForm"));
+const ExpectedPatnerForm = dynamic(() => import("./expectedPatnerForm"));
+const OngicarNama = dynamic(() => import("./ongicarNama"));
 import { FormPagination } from "./formPaggination";
 import FormHeading from "./formHeading";
+
 const Steaps = () => {
   const [currentPage, setCurrentPage] = useState(1); // State to track current page
   const totalPages = 8; // Total number of pages (steps)

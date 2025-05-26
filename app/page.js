@@ -6,10 +6,12 @@ import AccordionC from "@/_components/Accoreading/accoreading";
 import MakeBiodata from "@/_components/makeBiodata/makeBiodata";
 import HowToWork from "@/_components/HowToWork/howToWork";
 import MultiStepForm from "@/regestation/form";
+import Navbar from "./_components/Navbar/Navbar";
 export default function Home() {
   return (
     <div>
       <div>
+        <Navbar></Navbar>
         <Hero></Hero>
         <Search value="ঠিকানা অনুসারে খুঁজুন"></Search>
         {/* <AccordionC></AccordionC> */}

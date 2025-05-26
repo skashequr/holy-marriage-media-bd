@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { tiroBangla } from "../../layout";
 import NavigateLoginPage from "../auth/navigateLoginPage";
+
 const Navbar = () => {
   return (
     <div className={tiroBangla.className}>
@@ -29,7 +30,7 @@ const Navbar = () => {
               <Link href="/">হোম</Link>
             </li>
             <li className="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
-              <Link href="/">বায়োডাটা</Link>
+              <Link href="/user/userbiodata" prefetch={true}>বায়োডাটা</Link>
             </li>
             <li className="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
               <Link href="">আমাদের সম্পর্কে</Link>
