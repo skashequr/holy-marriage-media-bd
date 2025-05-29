@@ -25,6 +25,9 @@ const OngicarNama = () => {
   // const router = useRouter(); // Use useRouter for client-side navigation
 
   // Handle change for all input fields
+  const user2 = useSelector((state) => state.user.user);
+  console.log("user2", user2);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -33,14 +36,17 @@ const OngicarNama = () => {
     }));
   };
   const user = {
-    _id: "676830368f7348de5a7cfe30",
-    password: "TestPassword123",
-    needsPasswordChange: true,
-    role: "admin",
-    status: "in-progress",
-    isDeleted: false,
-    createdAt: "2024-12-22T09:12:32.000Z",
-    updatedAt: "2024-12-22T09:12:32.000Z",
+    _id: user2?._id,
+    password: user2?.password,
+    needsPasswordChange: user2?.needsPasswordChange,
+    role: user2?.role,
+    status: user2?.status,
+    isDeleted: user2?.isDeleted,
+    createdAt: user2?.createdAt,
+    updatedAt: user2?.updatedAt,
+    // username: user2?.username,
+    // email: user2?.email,
+
   };
   // Handle form submission
   const handleSubmit = (e) => {

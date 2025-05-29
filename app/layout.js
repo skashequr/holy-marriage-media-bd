@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import { AppProvider } from "./redux/provider";
 import { Suspense } from "react";
 import Loading from "./(user)/user/loading";
+import ReduxInitializer from "./redux/reduxInitializer";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -25,16 +26,34 @@ const geistMono = localFont({
 });
 
 export default function RootLayout({ children }) {
-  return (
+   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tiroBangla.variable} antialiased`}
       >
-        {/* <Navbar></Navbar> */}
-        <Suspense fallback={<Loading></Loading>}></Suspense>
-        <ToastContainer></ToastContainer>
-        <AppProvider>{children}</AppProvider>
+        <Suspense fallback={<Loading />} />
+        <ToastContainer />
+        <AppProvider>
+          <ReduxInitializer />
+          {children}
+        </AppProvider>
       </body>
     </html>
   );
 }
+
+
+
+
+
+
+// app/layout.tsx বা app/layout.ts (Next.js 13+ App Router)
+
+
+
+
+
+// ✅ ReduxInitializer Component
+
+
+
