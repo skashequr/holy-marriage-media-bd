@@ -9,6 +9,7 @@ import marriageInfo from "./marriageInfoSlice";
 import expectedPatner from "./expectedPatnerSlice";
 import ongicarnama from "./ongicarnamaSlice";
 import { userReducer } from "./userSlice";
+// import { fetchAdminUsers } from "./adminUserSlice";
 // import {} from "";
 const store = configureStore({
   reducer: {
@@ -21,6 +22,8 @@ const store = configureStore({
     expectedPatner: expectedPatner,
     ongicarnam: ongicarnama,
     user: userReducer,
+    // admin: adminRed,
+    // adminUsers: fetchAdminUsers,
   
   },
 });

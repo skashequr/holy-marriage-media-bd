@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state for education data
 const initialState = {
-  education_medium: "",
+  medium: "",
   highest_qualification: "",
   other_qualifications: [],
   ssc: {
@@ -34,7 +34,7 @@ const educationSlice = createSlice({
   initialState,
   reducers: {
     setEducation: (state, action) => {
-      state.education_medium = action.payload.education_medium;
+      state.medium = action.payload.medium;
       state.highest_qualification = action.payload.highest_qualification;
       state.other_qualifications = action.payload.other_qualifications;
       state.ssc = action.payload.ssc;

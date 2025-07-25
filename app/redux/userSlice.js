@@ -17,12 +17,22 @@ const userSlice = createSlice({
       localStorage.setItem('token', action.payload.token);
       localStorage.setItem('user', JSON.stringify(action.payload.user));
     },
+    setBiodataId: (state, action) => {
+      if (state.user) {
+        state.user.biodataId = action.payload;
+        localStorage.setItem(
+          'user',
+          JSON.stringify({ ...state.user, biodataId: action.payload })
+        );
+      }
+    },
     logout: (state) => {
       state.user = null;
       state.token = null;
       localStorage.removeItem('token');
       localStorage.removeItem('user');
     },
+    
     loadFromStorage: (state) => {
       const token = localStorage.getItem('token');
       const user = localStorage.getItem('user');
@@ -37,4 +47,4 @@ const userSlice = createSlice({
 // ✅ এই লাইন যোগ করো:
 export const userReducer = userSlice.reducer;
 
-export const { setCredentials, logout, loadFromStorage } = userSlice.actions;
+export const { setCredentials, logout, loadFromStorage , setBiodataId } = userSlice.actions;

@@ -15,6 +15,8 @@ const OngicarNama = () => {
   const personalDetails = useSelector((state) => state.personal);
   const personalInfo = useSelector((state) => state.personalInfo.personalInfo);
 
+  console.log(education, "education");
+  
   const [formData, setFormData] = useState({
     familyConsent: "",
     addedToCommunity: "",
@@ -81,7 +83,9 @@ const OngicarNama = () => {
         // router.push("/"); // Use router.push for client-side redirection
       })
       .catch((error) => {
-        console.error("Error:", error);
+        alert(error.message);
+        console.error("Error:", error.error);
+        
       });
   };
 

@@ -6,18 +6,20 @@ import AccordionC from "@/_components/Accoreading/accoreading";
 import MakeBiodata from "@/_components/makeBiodata/makeBiodata";
 import HowToWork from "@/_components/HowToWork/howToWork";
 import MultiStepForm from "@/regestation/form";
-import Navbar from "./_components/Navbar/Navbar";
+import StatsSection from "./_components/stateUp/stateup";
+import Footer from "./_components/footer/footer";
 export default function Home() {
   return (
     <div>
       <div>
-        <Navbar></Navbar>
         <Hero></Hero>
-        <Search value="ঠিকানা অনুসারে খুঁজুন"></Search>
+        {/* <Search value="ঠিকানা অনুসারে খুঁজুন"></Search> */}
         {/* <AccordionC></AccordionC> */}
-        <MakeBiodata></MakeBiodata>
         <HowToWork></HowToWork>
-        <MultiStepForm></MultiStepForm>
+        <StatsSection></StatsSection>
+        <MakeBiodata></MakeBiodata>
+        <Footer></Footer>
+        {/* <MultiStepForm></MultiStepForm> */}
       </div>
     </div>
   );

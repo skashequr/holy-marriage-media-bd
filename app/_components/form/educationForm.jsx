@@ -8,8 +8,8 @@ const EducationForm = ({ onPageChange }) => {
   };
   const [formData, setFormData] = useState({
     medium: "",
-    highestQualification: "",
-    otherQualifications: "",
+    highest_qualification: "",
+    other_qualifications: "",
     ssc: { name: "", year: "", group: "" },
     hsc: { name: "", year: "", group: "" },
     university: { name: "", year: "", department: "" },
@@ -24,13 +24,11 @@ const EducationForm = ({ onPageChange }) => {
   formData;
 
   const isGenerel = medium("জেনারেল");
-  console.log(isGenerel);
 
   const isKowmi = medium("ক্বওমি");
   const isAliya = medium("আলিয়া");
   const isEnglish = medium("ইংরেজি মাধ্যম");
 
-  console.log(isGenerel);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -102,8 +100,8 @@ const EducationForm = ({ onPageChange }) => {
             </label>
             <select
               id="highestQualification"
-              name="highestQualification"
-              value={formData.highestQualification}
+              name="highest_qualification"
+              value={formData.highest_qualification}
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             >
@@ -152,9 +150,9 @@ const EducationForm = ({ onPageChange }) => {
           অননান্য শিক্ষাগত যোগ্যতা
         </label>
         <textarea
-          name="otherQualifications"
+          name="other_qualifications"
           id="otherQualifications"
-          value={formData.otherQualifications}
+          value={formData.other_qualifications}
           onChange={handleChange}
           placeholder="অননান্য শিক্ষাগত যোগ্যতা"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
